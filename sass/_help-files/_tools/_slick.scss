@@ -1,0 +1,121 @@
+
+// Slick settings
+.slick-slider {
+    overflow-x: hidden;
+    position: relative;
+    display: block !important;
+    padding-bottom: 7rem;
+
+    img {max-width: 100%;}
+
+    .slick-slide {
+        position: relative;
+        margin-bottom: 0;
+    }
+
+    .slick-track {
+        display: flex;
+        padding-bottom: 0;
+    }
+
+    .slick-list {
+        display: block !important;
+
+        @supports(display: flex) {
+            display: flex !important;
+        }
+    }
+
+    // slick dots
+    .slick-dots {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        list-style: none;
+        
+        li {
+            display: inline-block;
+            margin-right: 1rem;
+            margin-left: 0;
+            
+            button {
+                color: transparent;
+                background-color: transparent;
+                width: 1.2rem;
+                height: 1.2rem;
+                border-radius: 50%;
+                cursor: pointer;
+                border: none;
+                background-color: #fff;
+            }
+
+            &.slick-active button {
+                background-color: #fff;
+                width: 4rem;
+                height: 1.5rem;
+                border-radius: 3rem;
+                transform: translateY(-0.25rem);
+                margin-top: -4.5rem;
+            }
+        }
+    }
+
+    // slick arrows
+    .slick-prev,
+    .slick-next {
+        font-size: 0;
+        line-height: 0;
+        position: absolute;
+        top: 50%;
+        display: block;
+        width: 7rem;
+        height: 7rem;
+        padding: 0;
+        transform: translate(0, -50%);
+        cursor: pointer;
+        color: transparent;
+        border: none;
+        outline: none;
+        z-index: 9;
+        transition: opacity .4s;
+        opacity: 1;
+        background-color: #fff;
+        border-radius: 50%;
+
+        &:hover {opacity: 1;}
+
+        
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            content: "";
+            width: 1.6rem;
+            height: 1.6rem;
+            background-image: url(../img/icon/arrow-right-primary.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            
+        }
+    }
+
+    .slick-prev {
+        left: 0;
+        &::before {transform: translate(-50%, -50%) scale(-1);}
+    }
+
+    .slick-next {right: 0;}
+}
+
+// extra styles
+.slick-mobile {
+    .slick-list {
+        padding-right: 10rem;
+    }
+}
+
+.slick-disabled {
+    display: none !important;
+}

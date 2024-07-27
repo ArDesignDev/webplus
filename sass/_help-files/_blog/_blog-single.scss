@@ -1,0 +1,319 @@
+.blog-single {
+
+    .blog-back {
+        margin-bottom: 10rem;
+        display: flex;
+        align-items: center;
+
+        @media (max-width: $bp-medium) {
+            margin-bottom: 4rem;
+            margin-top: 2rem;
+        }
+
+        .blog-back-icon {
+            a {
+                width: 6rem;
+                height: 6rem;
+                background-color: $color-cool;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;;
+
+                @media (max-width: $bp-medium) {
+                    width: 4rem;
+                    height: 4rem;
+                }
+
+                img {
+                    width: 1rem;
+                }
+            }
+
+            & + a {
+                padding-left: 2rem;
+            }
+        }
+    }
+    
+    .blog-content {
+        padding: 8rem 0 3rem;
+
+        .blog-meta {
+            margin-bottom: 3rem;
+
+            .blog-meta-category {
+
+                a {
+                    padding: 1rem 2rem;
+                    font-size: 1.2rem;
+                    background-color: $color-cool;
+                    border-radius: $border-radius;
+                    margin-right: 1rem;
+                }
+            }
+
+            .blog-meta-date {
+                font-size: 1.2rem;
+
+                @media (max-width: $bp-medium) {
+                    display: block;
+                    margin-top: 2rem;
+                    padding-left: 1rem;
+                }
+            }
+        }
+
+        ul {
+            padding-left: 3rem;
+            padding-bottom: 2.5em;
+        }
+
+        figure {
+            margin: 4rem 0 7rem;
+        }
+
+        .section-col {
+            figure {
+                margin: 0 !important;
+            }
+        }
+    }
+
+    h1 {
+        padding-bottom: 4rem;
+    }
+
+    .blog-content-excerpt {
+        p {
+            font-weight: bold;
+            margin-bottom: 3rem;
+        }
+    }
+
+    // blog single extra
+    .blog-single-extra {
+        display: flex;
+        padding-bottom: 5rem;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 5rem;
+
+        .blog-single-extra-share {
+            margin-left: auto;
+        }
+    }
+
+    .blog-content-inner {
+        ul, ol {
+            padding-left: 2rem;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            margin-top: 2rem;
+        }
+
+        img {
+            margin: 2rem 0 3rem;
+            border-radius: $border-radius;
+        }
+
+        h2, h3, h4, h5, h6 {
+            padding: 2rem 0;
+        }
+
+        a {
+            color: $color-dark;
+            border-bottom: 2px solid $color-primary;
+            display: inline;
+        }
+    }
+
+    .blog-main-img {
+        img {
+            border-radius: $border-radius;
+        }
+    }
+
+    // nav
+    .blog-single-nav {
+        display: flex;
+
+        .prev-post {
+            padding-right: 4rem;
+        }
+
+        .next-post {
+            margin-left: auto;
+            padding-left: 4rem;
+        }
+
+        .blog-single-nav-item {
+            display: flex;
+            align-items: center;
+
+            .blog-single-nav-thumbnail {
+                img {
+                    width: 10rem;
+                    height: 10rem;
+                    object-fit: cover;
+                    display: block;
+                    margin-right: 2rem;
+                    border-radius: $border-radius;
+                }
+            }
+
+            h5 {
+                font-weight: bold;
+                padding-bottom: 1rem;
+            }
+
+            .blog-single-nav-info {
+                display: block;
+                font-size: 1.2rem;
+                text-decoration: underline;
+            }
+        }
+
+    }
+
+    .blog-content-author {
+        max-width: 50rem;
+        display: flex;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+
+        img {
+            margin: 0;
+        }
+
+        .blog-content-author-img {
+            width: 7rem;
+
+            img {
+                width: 7rem;
+                height: 7rem;
+                overflow: hidden;
+                border-radius: 100%;
+            }
+
+        }
+
+        .blog-content-author-info {
+            width: calc(100% - 7rem);
+            padding-left: 3rem;
+
+            p {
+                font-size: 1.4rem;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            .blog-content-author-follow {
+                display: flex;
+                align-items: center;
+                margin-top: 1.5rem;
+
+                a {
+                    border-bottom: none;
+                }
+            }
+
+            .blog-content-follow-link {
+                text-decoration: none;
+                color: $color-dark;
+                font-weight: bold;
+                padding-left: 1rem;
+                font-size: 1.4rem;
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+// downaload banner
+.download-banner {
+    background-color: $color-cool;
+    border-radius: $border-radius;
+    padding: 5rem 14rem;
+    margin: 5rem -20rem 5rem;
+    width: calc(100% + 40rem);
+
+    @media (max-width: $bp-largest) {
+        padding: 5rem 10rem;
+        margin: 5rem -10rem 5rem;
+        width: calc(100% + 20rem);
+    }
+
+    @media (max-width: $bp-large) {
+        margin: 5rem 0;
+        width: 100%;
+        padding: 5rem 5rem;
+    }
+
+    @media (max-width: $bp-medium) {
+        padding: 2rem 3rem;
+    }
+
+    .btn a {
+        text-decoration: none;
+    }
+
+    h3 {
+        @media (max-width: $bp-largest) {
+            font-size: 3rem;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0 !important;
+        padding-top: 0;
+
+        @media (max-width: $bp-medium) {
+            padding-bottom: 1.5rem !important;
+        }
+
+        li {
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 1rem;
+
+            @media (max-width: $bp-medium) {
+                font-size: 1.6rem;
+                padding-bottom: .5rem;
+            }
+
+            &::before {
+                @include sudo-icon;
+                background-image: url(../img/icon/icon-checkbox.svg);
+                width: 1.5rem;
+                height: 1.5rem;
+                left: 0;
+                top: .75rem;
+            }
+
+        }
+    }
+
+    figure {
+        @media (max-width: $bp-medium) {
+           text-align: center;
+
+           img {
+                margin: 0 auto;
+                max-width: 20rem;
+           }
+        }
+    }
+}
+
+// remove background
+.single-post {
+    .background-cover {
+        display: none;
+    }
+
+    p {
+        padding-bottom: 1em;
+        line-height: 1.6;
+    }
+}

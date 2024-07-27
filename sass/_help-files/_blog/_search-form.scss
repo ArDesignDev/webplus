@@ -1,0 +1,47 @@
+.search-form {
+    display: flex;
+    $height: 6rem;
+
+    & > label {
+        width: 100%;
+    }
+
+    input[type="search"] {
+        height: $height;
+        width: 100%;
+        padding: 1rem 5rem 1rem 2rem;
+        border: none;
+        background-color: #f0f0f0;
+        font-size: 1.6rem;
+    }
+
+    .search-btn {
+        position: absolute;
+        right: 0;
+        height: $height;
+        z-index: 1;
+        cursor: pointer;
+
+        .search-submit {
+            height: $height;
+            position: absolute;
+            right: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        svg {
+            display: block;
+            width: 2rem;
+            height: 2rem;
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: -1;
+            cursor: pointer;
+        }
+    }
+
+
+}

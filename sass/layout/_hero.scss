@@ -1,0 +1,13 @@
+.hero-wrapper {
+    color: #fff;
+    height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-position: bottom right;
+
+    @media (max-width: $bp-medium) {
+      height: auto;
+      padding-top: 19rem;
+      padding-bottom: 10rem;
+    }
+  }

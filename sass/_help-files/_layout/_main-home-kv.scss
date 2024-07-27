@@ -1,0 +1,79 @@
+.main-home-kv {
+    @include full-width;
+    
+    margin-top: -10rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+
+    @media (max-width: $bp-medium) {
+        padding: 40vh 1rem 0;
+        height: auto;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .main-home-kv-title {
+        width: 87%;
+        margin: 0 auto 1rem auto;
+        display: block;
+    }
+
+    p {
+        max-width: 100rem;
+        margin: 0 auto;
+        padding-bottom: 4rem;
+    }
+
+    h1 {
+        padding-bottom: 2rem;
+    }
+
+    
+    .main-home-kv-icons {
+        padding-top: 2rem;
+        max-width: 90%;
+
+        @media (max-width: $bp-medium) {
+            max-width: 95%;
+        }
+
+        .wp-block-column:not(:nth-last-of-type(1)) figure {
+            padding-right: 4rem;
+
+            @media (max-width: $bp-largest) {
+                padding-right: 0;
+            }
+        }
+    }
+
+    .main-home-kv-footer {
+        position: absolute;
+        bottom: 3rem;
+        width: 100%;
+        left: 0;
+
+        @media (max-width: $bp-medium) {
+            position: relative;
+            bottom: auto;
+            margin-top: 10rem;
+            text-align: center;
+        }
+
+        & > div {
+            max-width: 120rem;
+            margin: 0 auto;
+        }
+
+        h5 {
+            padding-bottom: 0;
+        }
+    }
+
+}

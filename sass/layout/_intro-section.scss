@@ -1,0 +1,26 @@
+.intro-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: $bp-medium) {
+        padding-bottom: 10rem;
+        padding-top: 8rem;
+        height: auto;
+    }
+
+    h2 {
+        span {
+            opacity: 0;
+            transform: translateY(2rem);
+            transition: all .6s;
+            display: inline-block;
+            
+            &.scrolled {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+}

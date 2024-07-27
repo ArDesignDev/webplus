@@ -1,0 +1,26 @@
+.basic-page {
+
+
+    .entry-header {
+        display: none;
+    }
+
+
+}
+
+.terms-page {
+    padding-top: 10rem;
+    
+    h1, h2, h3, h4 {
+        padding-bottom: .5em;
+        padding-top: .5em;
+    }
+
+    p {
+        padding-bottom: 1rem;
+    }
+
+    ul, ol {
+        padding-left: 2rem;
+    }
+}

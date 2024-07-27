@@ -1,0 +1,51 @@
+.contact-section {
+    padding: 5rem 0 10rem;
+    
+    .section-title span {
+        @media (max-width: $bp-medium) {
+            display: inline;
+        }
+    }
+
+    .contact-section-form {
+        max-width: 88rem;
+        margin: 0 auto;
+        padding: 4rem 4rem;
+        opacity: 0;
+        transform: translateY(10rem);
+        transition: $transition;
+
+        p {
+            padding-bottom: 0;
+        }
+
+        @media (max-width: $bp-medium) {
+            padding: 0;
+        }
+
+        &.scrolled {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .section-text {
+        @media (max-width: $bp-medium) {
+            text-align: center;
+        }
+    }
+}
+
+.contact-form-confirm {
+    .wpcf7-list-item {
+        margin-left: 0;
+        margin-bottom: 3rem;
+        text-align: left;
+        line-height: 1.8;
+    }
+
+    input[type=checkbox] {
+        margin-right: 1rem;
+        transform: translateY(.4rem);
+    }
+}

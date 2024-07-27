@@ -1,0 +1,229 @@
+.footer {
+    background-color: transparent;
+    padding: 12rem 0 6rem;
+    color: $color-dark;
+    margin-top: 8rem;
+
+    @media (max-width: $bp-medium) {
+        padding: 6rem 0 4rem;
+        margin-top: 0;
+    }
+
+    h3 {
+        font-weight: bold;
+        margin-bottom: 2rem;
+    }
+
+    .footer-office-item {
+        position: relative;
+        padding-left: 3rem;
+
+        &::before {
+            @include sudo-icon;
+            background-image: url(../img/icon/location-blue.svg);
+            width: 2rem;
+            height: 2rem;
+            top: .5rem;
+            left: 0;
+        }
+    }
+
+    
+    // social
+    .social-icons {
+        display: flex;
+        align-items: center;
+        margin-top: 3rem;
+
+        @media (max-width: $bp-medium) {
+            flex-direction: column;
+            text-align: left;
+            align-items: flex-start;
+            padding-top: 2rem;
+            padding-bottom: 5rem;
+        }
+
+        .social-icons-list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0;
+
+            &-work {
+                display: none;
+            }
+
+            li {
+                padding-left: 3rem;
+
+                @media (max-width: $bp-medium) {
+                    padding-left: 0;
+                    padding-right: 3rem;
+                }
+            }
+        }
+
+        .social-icons-title {
+            padding-right: 3rem;
+
+            
+            h4 {
+                font-size: 2.4rem;
+            }
+        }
+    }
+
+    .footer-row {
+        display: flex;
+
+        &.footer-row-second {
+            margin-top: 4rem;
+        }
+    }
+
+    
+    ul {
+        list-style: none;
+        margin-bottom: 1.5rem;
+
+        li {
+            font-size: 1.6rem;
+
+            a {
+                color: $color-dark;
+            }
+        }
+    }
+
+    a, p, h2, h3, h4 {
+        color: $color-dark;
+    }
+
+    .footer-nav {
+        ul {
+            display: flex;
+            margin-top: 3rem;
+
+            @media (max-width: $bp-medium) {
+                flex-direction: column;
+            }
+
+            a {
+                padding: 1rem 3rem;
+                font-size: 1.8rem;
+                transition: $transition;
+                font-weight: bold;
+
+                &:hover {
+                    color: $color-primary;
+                }
+
+                @media (max-width: $bp-medium) {
+                    padding: 1rem 0;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .footer-col {
+        width: 50%;
+    }
+
+    #footer-menu-3 {
+        @media (max-width: $bp-medium) {
+            margin-top: 3rem;
+        }
+        
+        a {
+            font-weight: bold;
+            padding-bottom: 1.5rem;
+        }
+    }
+
+    .footer-social {
+        display: flex;
+        margin-bottom: 0;
+
+        br {
+            display: none;
+        }
+
+        li {
+            width: 3rem;
+            height: 3rem;
+            margin-left: 1rem;
+
+            a {
+
+                br {
+                    display: none;
+                }
+
+                svg {
+                    width: 100%;
+
+                    path {
+                        transition: $transition;
+                    }
+
+                    &:hover {
+
+                        path {
+                            fill: $color-primary;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+    }
+
+    .footer-logo {
+        max-width: 12rem;
+
+        @media (max-width: $bp-medium) {
+            margin-top: 3rem;
+        }
+    }
+
+    .footer-nav {
+        .menu {
+            margin: 0;
+            a {
+                padding-left: 0;
+                font-weight: normal;
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    .footer-contact {
+        h2 {
+            margin: 3rem 0 1rem;
+        }
+    }
+
+    .menu-footer-menu-container {
+        a {
+            @media (max-width: $bp-medium) {
+                padding: .5rem !important;
+            }
+        }
+    }
+
+    .footer-address {
+        margin-top: 5rem;
+    }
+
+}
+
+.footer-copy {
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+
+

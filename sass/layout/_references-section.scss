@@ -1,0 +1,28 @@
+.references-section {
+
+    .references-section-list {
+        padding: 5rem 0 5rem;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        flex-wrap: wrap;
+
+        li {
+            padding: 2rem 4rem;
+            text-align: center;
+            
+            @media (max-width: $bp-medium) {
+                padding: 1rem 2rem;
+
+            }
+
+            img {
+                max-width: 20rem;
+                width: 100%;
+                @media (max-width: $bp-medium) {
+                    max-width: 10rem;
+                }
+            }
+        }
+    }
+}

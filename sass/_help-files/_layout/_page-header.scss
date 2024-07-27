@@ -1,0 +1,354 @@
+.page-header {
+
+    .page-header-inner {
+        margin: 0 0 4rem;
+
+        @media (max-width: $bp-medium) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    .page-header-filter {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        @media (max-width: $bp-medium) {
+            display: block;
+        }
+
+        .page-header-filter-cat {
+
+            .filter-list {
+                display: flex;
+                list-style: none;
+                flex-wrap: wrap;
+
+                @media (max-width: $bp-medium) {
+                    overflow-x: scroll;
+                    padding-bottom: 2rem;
+                    margin-right: -2rem;
+                    margin-bottom: 2rem;
+                    width: 100%;
+                    flex-wrap: nowrap;
+                }
+
+                li {
+                    margin-right: 2rem;
+                    margin-bottom: 2rem;
+
+                    @media (max-width: $bp-medium) {
+                        margin-right: 1rem;
+                        margin-bottom: 0;
+                    }
+
+                    a {
+                        padding: 2rem 6rem 2rem 3rem;
+                        font-size: 1.8rem;
+                        border: 1px solid $gray-border;
+                        border-radius: 3rem;
+                        color: $color-dark;
+                        display: block;
+                        position: relative;
+
+                        @media (max-width: $bp-medium) {
+                            white-space: nowrap;
+                            font-size: 1.4rem;
+                            padding: 1.5rem 4rem 1.5rem 2.5rem;
+                        }
+
+                        &::after {
+                            content: "";
+                            background-image: url(../img/icons/dot-1-black.svg);
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            width: .5rem;
+                            height: .5rem;
+                            display: block;
+                            position: absolute;
+                            right: 2rem;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+
+
+                        &.active {
+                           background-color: $color-dark;
+                           color: #fff;
+
+                           &::after {
+                            background-image: url(../img/icons/dot-1-white.svg);
+                           }
+                        }
+
+     
+                    }
+
+                    &:last-of-type {
+                        a {
+                            @media (max-width :$bp-medium) {
+                                padding-right: 5rem !important;
+                            }
+                        }
+                    }
+                }
+
+                &:not(.filter-list-absolute) {
+                    li {
+                        &:last-of-type {
+
+                            a {
+
+                                
+                                @media (max-width: $bp-medium) {
+                                    padding-right: 5rem;
+                                }
+                                
+                                &.active-all {
+                                    background-color: $color-dark;
+                                    color: #fff;
+
+    
+                                    &::after {
+                                        background-image: url(../img/icons/dots-4-white.svg);
+                                    }
+                                }
+    
+                                &::after {
+                                    content: "";
+                                    background-image: url(../img/icons/dots-4-black.svg);
+                                    background-size: contain;
+                                    width: 1.5rem;
+                                    height: 1.5rem;
+                                    display: block;
+                                    position: absolute;
+                                    right: 2rem;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                &.filter-list-static {
+                    li {
+                        &:last-of-type {
+
+                            a {
+
+                                @media (max-width: $bp-medium) {
+                                    padding-right: 5rem;
+                                }    
+    
+                                &::after {
+                                    content: "";
+                                    background-image: url(../img/icons/dot-1-black.svg);
+                                    background-size: contain;
+                                    width: .5rem;
+                                    height: .5rem;
+                                    display: block;
+                                    position: absolute;
+                                    right: 2rem;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                }
+
+                                &.active {
+                                    background-color: $color-dark;
+                                    color: #fff;
+    
+                                    &::after {
+                                        background-image: url(../img/icons/dot-1-white.svg);
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                &.filter-list-absolute {
+                    @media (max-width: $bp-medium) {
+                        li {
+                            &:last-of-type {
+    
+                                a {
+                                    
+                                    &.active-all {
+                                        background-color: $color-dark;
+                                        color: #fff;
+        
+                                        &::after {
+                                            background-image: url(../img/icons/dots-4-white.svg);
+                                        }
+                                    }
+        
+                                    &::after {
+                                        content: "";
+                                        background-image: url(../img/icons/dots-4-black.svg);
+                                        background-size: contain;
+                                        width: 1.5rem;
+                                        height: 1.5rem;
+                                        display: block;
+                                        position: absolute;
+                                        right: 2rem;
+                                        top: 50%;
+                                        transform: translateY(-50%);
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+
+             
+            }
+        }
+
+        .page-header-filter-cat-absolute {
+            display: flex;
+            margin-right: -2rem;
+            width: 100%;
+
+            @media (max-width: $bp-medium) {
+                width: auto;
+            }
+
+            .filter-list-absolute {
+                max-width: 70%;
+
+                @media (max-width: $bp-medium) {
+                    max-width: none;
+                }
+            }
+
+            .filter-list-absolute-last {
+                margin-left: auto;
+
+                li {
+                    margin-right: 0;
+                }
+
+                a {
+                    @media (max-width: $bp-medium) {
+                        padding-right: 5rem;
+                    }
+                }
+            }
+        }
+
+        .page-header-filter-search {
+            margin-left: auto;
+
+            @media (max-width: $bp-medium) {
+               // order: -1;
+                display: none;
+            }
+
+            &-absolute {
+                position: absolute;
+                top: -10rem;
+                right: 0;
+                margin-left: 0;
+
+                @media (max-width: $bp-medium) {
+                    position: relative;
+                    top: auto;
+                    right: auto;
+                }
+            }
+
+
+
+            form {
+                position: relative;
+
+                input[type=text] {
+                    background-color: #dbdbdb;
+                    border: #dbdbdb;
+                    padding: 1.5rem 4rem 1.5rem 3rem;
+                    min-width: 32rem;
+                 }
+
+                input[type="submit"] {
+                    width: 4rem;
+                    height: 5rem;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 1;
+                    opacity: 0;
+                    cursor: pointer;
+                    
+                }
+
+                .search-img {
+                    display: block;
+                    position: absolute;
+                    right: 1.5rem;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 2.2rem;
+                }
+            }
+        }
+
+        .page-header-order {
+            margin-left: auto;
+
+        }
+
+        &-v2 {
+            .page-header-filter-search {
+                margin-left: 0;
+            }
+
+        }
+    }
+
+}
+
+    // custom select
+    .custom-dropdown {
+        position: relative;
+        display: inline-block;
+
+        @media (max-width: $bp-medium) {
+            max-width: 23rem;
+        }
+    }
+    
+    .custom-dropdown select {
+        appearance: none;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 2rem 0;
+        border-radius: 3rem;
+        font-size: 1.6rem;
+        text-align: center;
+        min-width: 29rem;
+    }
+
+    .custom-dropdown {
+        option {
+            text-align: center;
+            font-size: 1.8rem;
+        }
+    }
+    
+    .custom-dropdown::after {
+        content: "";
+        position: absolute;
+        top: 2.6rem;
+        right: 15px;
+        pointer-events: none;
+        width: 2rem;
+        height: 1rem;
+        background-image: url(../img/icons/arrow-simple-down.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }

@@ -1,0 +1,29 @@
+.connect-section {
+    padding: 15rem 0 5rem;
+
+    @media (max-width: $bp-medium) {
+        padding: 9rem 0 0;
+    }
+
+    .connect-section-text {
+        img {
+            margin-bottom: 3rem;
+        }
+
+        h4 {
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+    }
+
+
+}
+
+.connect-section-buttons {
+    .wp-block-buttons {
+        @media (max-width: $bp-medium) {
+            justify-content: center !important;
+        }
+
+    }
+}

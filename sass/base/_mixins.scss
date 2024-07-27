@@ -1,0 +1,63 @@
+// MIXINS
+@mixin remove-list-style { //@include remove-list-style;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin container-center {
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+@mixin container-center-mini {
+    max-width: $container-width-mini;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+@mixin sudo-icon {
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+@mixin full-width {
+    width: calc(100vw - 9px);
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+@mixin clear-after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@mixin custom-list {
+    position: relative;
+    padding-left: 3.5rem;                        
+    margin-bottom: 2rem;
+    width: 100%;
+    list-style: none;
+}
+
+@mixin custom-list-before {
+    content: '';
+    position: absolute;
+    height: 1.8rem;
+    width: 1.8rem;
+    left: 0;
+    top: 50%;
+    font-size: 6rem;
+    margin-top: -0.5rem;
+    display: block;
+    background-image: url(../img/icon/checkbox-icon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,17 @@
+.cli-style-v2 .cli-bar-btn_container .cli-plugin-button {
+    border-radius: 2rem 0 2rem 2rem !important;
+}
+
+#cookie-law-info-bar[data-cli-style="cli-style-v2"][data-cli-type="widget"] {
+    border-radius: 4rem 0 4rem 4rem;
+    width: 40rem!important;
+}
+
+.cli-tab-footer .wt-cli-privacy-accept-btn {
+    background-color: $color-primary;
+    border-radius: 2rem 0 2rem 2rem;
+}
+
+#cookie-law-info-bar[data-cli-type="widget"] .cli-bar-message, #cookie-law-info-bar[data-cli-type="popup"] .cli-bar-message {
+    font-size: 1.4rem !important;
+}

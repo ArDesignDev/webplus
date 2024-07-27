@@ -1,0 +1,65 @@
+.contact {
+    .contact-num {
+        margin-top: 2rem;
+        font-weight: bold;
+        position: relative;
+        padding-left: 3rem;
+
+        &::after {
+            @include sudo-icon;
+            left: 0;
+            top: 46%;
+            transform: translateY(-50%);
+            background-image: url(../img/icons/phone.svg);
+            width: 1.5rem;
+            height: 2rem;
+            background-size: contain;
+        }
+
+        &-light {
+            margin-top: .5rem;
+            font-weight: normal;
+
+        }
+    }
+
+    .contact-mail {
+        position: relative;
+        padding-left: 3rem;
+
+        &::after {
+            @include sudo-icon;
+            left: 0;
+            top: 46%;
+            transform: translateY(-50%);
+            background-image: url(../img/icons/mail.svg);
+            width: 1.5rem;
+            height: 2rem;
+            background-size: contain;
+        }
+    }
+
+    .contact-extra {
+        p {
+            font-size: 2rem;
+
+            @media (max-width: $bp-medium) {
+                font-size: 1.6rem;
+            }
+        }
+
+        img {
+            padding-right: 2rem;
+
+            @media (max-width: $bp-medium) {
+                padding-right: 0;
+            }
+        }
+    }
+
+    .section-text {
+        @media (max-width: $bp-medium) {
+            text-align: center;
+        }
+    }
+}

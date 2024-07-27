@@ -1,0 +1,119 @@
+.single-related {
+    margin-top: 7rem;
+
+    h2 {
+        margin-bottom: 3rem;
+    }
+
+    .blog-articles-list  {
+        $gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        margin-left: -2rem;
+        margin-right: -2rem;
+
+        @media (max-width: $bp-small) {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .blog-post {
+            width: calc(33.33% - 2rem);
+            margin-bottom: 5rem;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: $border-radius;
+
+
+            @media (max-width: $bp-small) {
+                width: 100%;
+                gap: 2rem;
+                margin-bottom: 0;
+            }
+
+            h3 {
+                font-size: 2.4rem;
+            }
+
+            p {
+                font-size: 1.6rem;
+            }
+        
+            .btn,
+            .blog-post-footer {
+                margin-top: auto;
+            }
+        
+            .blog-img {
+                margin-bottom: 1rem;
+
+                img {
+                    height: 25rem;
+                    object-fit: cover;
+                    border-radius: 2rem;
+                }
+            }
+        
+            .blog-category {
+                margin-bottom: 2rem;
+     
+                ul {
+                    list-style: none;
+                    display: flex;
+                    flex-wrap: wrap;    
+        
+                    li {
+                        margin-bottom: .5rem;
+                        margin-right: .5rem;
+                    }
+                }
+
+                a {
+                    display: inline-block;
+                    border-radius: $border-radius;
+                    background-color: $color-cool;
+                    padding: 1rem 2rem;
+                    font-size: 1.2rem;
+                }
+            }
+
+            .blog-post-footer {
+
+                .blog-post-author {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .blog-post-author-img {
+                    width: 7rem;
+
+                    img {
+                        width: 7rem;
+                        height: 7rem;
+                        border-radius: 50%;
+                        overflow: hidden;
+                    }
+                }
+
+                .blog-post-author-name {
+                    padding-left: 2rem;
+                    width: calc(100% - 7rem);
+
+                    p {
+                        margin-bottom: 0;
+                        padding-bottom: 0;
+                        
+                    }
+                }
+
+
+            }
+        
+            
+        
+        }
+    }
+}

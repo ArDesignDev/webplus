@@ -1,0 +1,77 @@
+// MAIN COLORS
+
+
+
+$color-btn-hover: #e0aca1;
+
+
+$color-dark-2: #272932;
+$color-dark-light: #fff;
+
+$color-back-1: #fafafa;
+$color-back-2: #4c4c4c;
+
+$gray-border: #8d8d8d;
+$gray-back: #8e9292;
+$gray-links: #818286;
+$gray-form: #707070;
+
+
+$bp-medium-min: 48,875em; // 782px;
+
+// OTHER VARIABLES
+$transition: all .4s;
+$shadow-bottom: 0 4px 2px -2px rgba(128, 128, 128, .15);
+$shadow-regular: 1px 6px 9px 3px rgba(0, 0, 0, .4);
+$shadow-regular-hover: 0px 8px 10px 3px rgba(0, 0, 0, .28);
+
+$container-width: 130rem; 
+$container-width-mini: 100rem;
+
+$border-radius-special: 3rem 0 3rem 3rem;
+
+$box-shadow-img: -4px 8px 10px 0 rgba(0, 0, 0, .5);
+$box-shadow-img-2: 5px 4px 10px 0 rgba(0, 0, 0, .5);
+
+/////////////////////////////
+// Variables that I'm using
+///////////////////////////////
+
+// basic
+$color-primary: #2fc0cc;
+$color-secondary: #E31B6D;
+
+$color-dark: #1e1e1e;
+$color-dark-2: #272727;
+$color-dark-3: #313131;
+$color-text: #fff;
+
+
+$container-wide-width: 170rem;
+
+// text weight
+$text-bold: 700;
+
+// backgorund colors
+$color-gray-light: #F8F8F8;
+$color-gray-dark: #dbdbdb;
+
+
+// FONT VARIABLES
+$font-primary: "Raleway", sans-serif;
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 87.5em;  // 1400px
+$bp-large: 70em;  // 1040px
+$bp-medium: 50em;   // 800px
+$bp-small: 37.5em;  // 600px
+
+//other
+$border-radius: 3rem;
+$line-height-big: 1.5;
+$line-height-small: 1.2;
+
+$box-shadow: 1px 2px 6px 2px rgba(0, 0, 0, .11);
+$box-shadow-btn: 1px 2px 12px 4px rgba(103, 123, 239, .47);
+$box-shadow-box: -1px 11px 10px 0px rgba(0, 0, 0, .09);
+$box-shadow-box-hover: -1px 11px 10px 0px rgba(0, 0, 0, .28);
