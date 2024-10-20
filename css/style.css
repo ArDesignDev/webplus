@@ -1879,6 +1879,7 @@ option {
           justify-content: center;
   margin-bottom: 8rem;
   margin-top: 5rem;
+  display: none !important;
 }
 @media (max-width: 50em) {
   .project-section .category-filter {
@@ -1938,6 +1939,7 @@ option {
       flex-wrap: wrap;
   margin-left: -0.5rem;
   margin-right: -0.5rem;
+  margin-top: 8rem;
 }
 @media (max-width: 50em) {
   .project-section .project-section-list {
