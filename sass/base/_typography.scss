@@ -78,7 +78,7 @@ h2 {
     }
     
     @media (max-width: $bp-medium) {
-        font-size: 2.8rem;
+        font-size: 2.4rem;
     }
 }
 
@@ -227,7 +227,18 @@ h6 {
 
 
 
+.btn-projects {
+    a {
+        text-decoration: none !important;
+        border-radius: 2rem 0;
+        color: #fff !important;
+        transition: $transition;
 
+        &:hover {
+            background-color: $color-primary;
+        }
+    }
+}
 
 
 // spining

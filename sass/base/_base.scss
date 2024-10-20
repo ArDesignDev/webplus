@@ -120,14 +120,15 @@ img {
     width: var(--size);
     height: var(--size);
     border-radius: 50%;
-    box-shadow: 0 0 0 1px $color-primary;
+    //box-shadow: 0 0 0 1px $color-primary;
+    border: 1px solid $color-primary;
     pointer-events: none;
     transition: top 0.15s ease-out, left 0.15s ease-out, width 0.15s ease-out,
     height 0.15s ease-out, background-color 0.15s ease-out;
     z-index: 999999999999;
     
     @media (max-width: $bp-large) {
-      display: none;
+      display: none !important;
     }
     
 }

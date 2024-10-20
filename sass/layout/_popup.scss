@@ -44,8 +44,9 @@
     width: 100%;
     height: 100vh;
     z-index: 1000;
-    background: #222;
+    background: #222222ed;
     display: none;
+    backdrop-filter: blur(3px);
 
     .popup-container-inner {
         overflow-y: auto;
@@ -74,11 +75,11 @@
     // content
     #popup-content {
         max-width: 130rem;
-        padding: 4rem 4rem 10rem 4rem;
+        padding: 10rem 4rem 14rem 4rem;
         margin: 0 auto;
 
         @media (max-width: $bp-medium) {
-            padding: 2rem;
+            padding: 4rem 2rem 6rem 2rem;
         }
 
         h2 {
@@ -89,6 +90,20 @@
             }
         }
 
+        .popup-img {
+            border-radius: 1rem;
+            border: 1.3rem solid;
+        }
+
+        .popup-content-header {
+            padding-bottom: 3rem;
+        }
+
+        .popup-content-main {
+            @media (max-width: $bp-medium) {
+                margin-bottom: 4rem;
+            }
+        }
 
         ul.project-list-items {
             list-style: none;
@@ -96,7 +111,6 @@
             flex-wrap: wrap;
             margin-left: -1rem;
             margin-right: -1rem;
-            max-width: 79rem;
 
             li {
                 color: #fff;
@@ -105,6 +119,7 @@
                 margin: .5rem;
                 background-color: #141313;
                 font-size: 1.4rem;
+                border-radius: 2rem;
 
                 @media (max-width: $bp-medium) {
                     font-size: 1.2rem;

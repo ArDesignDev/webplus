@@ -293,53 +293,33 @@ add_action('init', function() {
 
 
 
-function custom_search_filter( $query ) {
-    if ( ! is_admin() && $query->is_main_query() ) {
-        if ( $query->is_search ) {
-            $search_type = isset( $_GET['search_type'] ) ? $_GET['search_type'] : '';
-
-            if ( 'blog_posts' === $search_type ) {
-                $query->set( 'post_type', 'post' );
-            } elseif ( 'resources' === $search_type ) {
-                $query->set( 'post_type', 'resources' ); // Replace 'resources' with your actual custom post type slug
-            }
-        }
-    }
-    return $query;
-}
-add_action( 'pre_get_posts', 'custom_search_filter' );
-
-// AJAX POST FILTER
+// AJAX POST FILTER - Load More functionality without category filtering
 function filter_posts_by_category() {
-    $category_id = isset($_POST['cat']) ? intval($_POST['cat']) : '';
-
-    // Determine the number of posts per page based on category selection
-    $posts_per_page = $category_id ? -1 : 6;  // If a category is selected, show all posts by setting -1, otherwise show 4 posts per page.
-
+    $posts_per_page = 6; // Number of posts per page
     $page = isset($_POST['page']) ? intval($_POST['page']) : 1; // Default to the first page
-
+  
     $args = array(
         'post_type' => 'post',
-        'cat' => $category_id,
         'posts_per_page' => $posts_per_page,
         'paged' => $page
     );
-
+  
     $query = new WP_Query($args);
-
+  
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
-            get_template_part('template-parts/projects'); // This loads the template part for displaying posts.
+            get_template_part('template-parts/projects'); // Loads the template part for displaying posts
         }
     } else {
-        echo '<p>No posts found.</p>';
+        echo ''; // Return an empty response when no more posts
     }
+  
     wp_die(); // Proper way to terminate immediately and return a proper response
-}
-
-add_action('wp_ajax_filter_posts_by_category', 'filter_posts_by_category');
-add_action('wp_ajax_nopriv_filter_posts_by_category', 'filter_posts_by_category');
+  }
+  
+  add_action('wp_ajax_filter_posts_by_category', 'filter_posts_by_category');
+  add_action('wp_ajax_nopriv_filter_posts_by_category', 'filter_posts_by_category');
 
 // POPUP FILTER
 function fetch_post_content() {

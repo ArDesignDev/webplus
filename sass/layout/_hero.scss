@@ -7,7 +7,13 @@
 
     @media (max-width: $bp-medium) {
       height: auto;
-      padding-top: 19rem;
-      padding-bottom: 10rem;
+      padding-top: 16rem;
+      padding-bottom: 0;
+    }
+  }
+
+  #link2 {
+    @media (max-width: $bp-medium) {
+      display: none;
     }
   }

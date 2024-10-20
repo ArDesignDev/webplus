@@ -1,7 +1,7 @@
 <div id="post-<?php the_ID(); ?>" class="project-section-item">
 
     <?php the_post_thumbnail(); ?>
-
+    <div class="project-section-item-overlay"></div>
     <div class="project-section-item-text">
         <h3><?php the_title(); ?></h3>
         <h4><?php the_field('project_subtitle'); ?></h4>
@@ -20,7 +20,7 @@
         <?php } ?>
 
     
-    
-    </div>
 
+    </div>
+ 
 </div>

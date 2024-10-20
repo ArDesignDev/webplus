@@ -3,6 +3,7 @@ var array = string.split("");
 var timer;
 
 jQuery(document).ready(function($) {
+    console.log('updated.1');
     particles();
     navOnScroll();
     mobileMenu();
@@ -11,26 +12,43 @@ jQuery(document).ready(function($) {
     //setTimeout(frameLooper, 1700);
     animationShow();
     effectOnLoad();
-    projectFilter();
+    //projectFilter();
     if (window.innerWidth > 640) { courserEffect();}
 
     onScrollEffects();
+    sectionTitleAnimation();
+    loadMorePosts();
+    overlayMobile();
 
+    function blockScroll(event) {
+      let scrollTop = $(window).scrollTop();
 
+      // Disable scroll when at the very top of the page
+      if (scrollTop === 0) {
+          event.preventDefault(); // Prevent default scroll behavior
+      } else {
+          // Remove the event listener once the user scrolls down
+          window.removeEventListener('wheel', blockScroll, { passive: false });
+      }
+    }
+
+    window.addEventListener('wheel', blockScroll, { passive: false }); // Set passive to false to allow preventDefault
   
 });
 
-jQuery('.section-title').each(function() {
-  var words = jQuery(this).text().split(' ');
-  var html = '';
-  for (var i = 0; i < words.length; i++) {
-    html += '<span>' + words[i] + '</span>';
-    if (i < words.length - 1) {
-      html += ' '; // Add space between words
+function sectionTitleAnimation() {
+  jQuery('.section-title').each(function() {
+    var words = jQuery(this).text().split(' ');
+    var html = '';
+    for (var i = 0; i < words.length; i++) {
+      html += '<span>' + words[i] + '</span>';
+      if (i < words.length - 1) {
+        html += ' '; // Add space between words
+      }
     }
-  }
-  jQuery(this).html(html);
-});
+    jQuery(this).html(html);
+  });
+}
 
 jQuery(window).scroll(function($){
     navOnScroll();
@@ -55,6 +73,9 @@ document.addEventListener("DOMContentLoaded", function() {
 window.addEventListener('resize', function() {
   checkWindowSize(); // Check window size on resize
 });
+
+// Initialize cursor effects initially
+const applyHoverEffects = courserEffect();
 
 function projectFilter() {
   //const ajaxurl = 'http://localhost/webplus/wp-admin/admin-ajax.php'; // local
@@ -82,6 +103,8 @@ function projectFilter() {
     }
   });
 
+
+
   function loadPosts(category, page) {
     jQuery.ajax({
       url: ajaxurl,
@@ -97,11 +120,18 @@ function projectFilter() {
       success: function(response) {
         jQuery('#posts-container').html(response);
         jQuery('.project-section-item').hide();
+       
 
         // Fade in each .project-section-item one by one with a delay
         jQuery('.project-section-item').each(function(i) {
           jQuery(this).delay(i * 300).fadeIn(600);
         });
+
+        if (window.innerWidth > 640) {
+          applyHoverEffects();
+        }
+
+        overlayMobile();
       }
     });
   }
@@ -122,6 +152,7 @@ function projectFilter() {
         jQuery('#load-more').text('Loading...');
       },
       success: function(response) {
+        
         if (response) {
           var newItems = jQuery('<div/>').html(response).find('.project-section-item').hide();
           jQuery('#posts-container').append(newItems);
@@ -134,11 +165,64 @@ function projectFilter() {
         } else {
           jQuery('#load-more').remove(); // Remove the button if no more posts to load
         }
+
+        if (window.innerWidth > 640) {
+          applyHoverEffects();
+        }
+
+        overlayMobile();
       }
     });
   });
 }
 
+function loadMorePosts() {
+  const ajaxurl = 'https://webplussolution.com/wp-admin/admin-ajax.php'; // live
+
+  // Event listener for the Load More button
+  jQuery(document).on('click', '#load-more', function() {
+    var nextPage = parseInt(jQuery(this).data('page'), 10) + 1; // Increment the page number
+
+    jQuery.ajax({
+      url: ajaxurl,
+      type: 'POST',
+      data: {
+        action: 'filter_posts_by_category',
+        page: nextPage
+      },
+      beforeSend: function() {
+        jQuery('#load-more').text('Loading...'); // Show loading text
+      },
+      success: function(response) {
+        
+        if (response.trim() !== '') {
+          // If the response has content, append the new posts
+          var newItems = jQuery('<div/>').html(response).find('.project-section-item').hide();
+          jQuery('#posts-container').append(newItems);
+          newItems.each(function(i) {
+            jQuery(this).delay(i * 300).fadeIn(600);
+          });
+
+          // Update the 'Load More' button with the new page number
+          jQuery('#load-more').text('Load More').data('page', nextPage);
+        } else {
+          // If the response is empty, hide the Load More button
+          jQuery('#load-more').text('No more projects');
+        }
+
+        if (window.innerWidth > 640) {
+          applyHoverEffects();
+        }
+
+        overlayMobile();
+      },
+      error: function() {
+        // In case of an error, reset the Load More button text
+        jQuery('#load-more').text('Load More');
+      }
+    });
+  });
+}
 
 function onScrollEffects() {
   const wScroll = jQuery(this).scrollTop();
@@ -193,6 +277,7 @@ function onScrollEffects() {
         }, 140 * (i+1));
       });
 
+      /*
       setTimeout(function() {
         jQuery('.project-section .category-filter li').each(function(i){
           setTimeout(function(){
@@ -200,6 +285,7 @@ function onScrollEffects() {
           }, 150 * (i+1));
         });
       }, 1400);
+*/
 
       setTimeout(function() {
 
@@ -214,7 +300,7 @@ function onScrollEffects() {
         }, 2000);
 
 
-      }, 1600);
+      }, 1200);
 
     }, 300);
 
@@ -349,6 +435,16 @@ function effectOnLoad() {
       jQuery('.cky-consent-container').addClass('cookie-show');
     }, 5000);
 
+    if (window.innerWidth < 640) {
+      setTimeout(function() {
+        jQuery('.intro-section').addClass('section-active');
+        jQuery('.intro-section h2 span').each(function(i){
+          setTimeout(function(){
+            jQuery('.intro-section h2 span').eq(i).addClass('scrolled');
+          }, 120 * (i+1));
+        });
+      }, 3000);
+    }
 
 }
 
@@ -567,44 +663,99 @@ function courserEffect() {
     requestAnimationFrame(loop);
   });
 
-  // Select all <a> link elements and add event listeners for mouseover and mouseout
-  document.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("mouseover", (e) => {
-      cursorBorder.style.backgroundColor = "rgba(0, 255, 255, 0)";
-      //cursorBorder.style.mixBlendMode = "difference";
-      cursorBorder.style.setProperty("--size", "40px");
+  // Reusable function to apply hover effects to a set of elements
+  function applyHoverEffects() {
+    document.querySelectorAll("a, .read-more, .btn-load-more, .wpcf7-submit, .popup-close, .wp-block-button__link").forEach((link) => {
+      link.addEventListener("mouseover", (e) => {
+        cursorBorder.style.backgroundColor = "rgba(0, 255, 255, 0)";
+        cursorBorder.style.setProperty("--size", "50px");
+      });
+
+      link.addEventListener("mouseout", (e) => {
+        cursorBorder.style.backgroundColor = "unset";
+        cursorBorder.style.setProperty("--size", "20px");
+      });
     });
 
-    link.addEventListener("mouseout", (e) => {
-      cursorBorder.style.backgroundColor = "unset";
-      cursorBorder.style.mixBlendMode = "unset";
-      cursorBorder.style.setProperty("--size", "20px");
-    });
-  });
+    document.querySelectorAll(".main-header-text").forEach((div) => {
+      div.addEventListener("mouseover", (e) => {
+        cursorBorder.style.backgroundColor = "#2fc0ccde";
+        cursorBorder.style.borderColor = "#2fc0ccde";
+        cursorBorder.style.setProperty("--size", "60px");
+        cursorBorder.textContent = "Click to start";
+        cursorBorder.style.display = "flex";
+        cursorBorder.style.alignItems = "center";
+        cursorBorder.style.justifyContent = "center";
+        cursorBorder.style.color = "#fff";
+        cursorBorder.style.fontSize = "12px";
+        cursorBorder.style.textAlign = "center";
+        cursorBorder.style.fontWeight = "bold";
+      });
 
-  // Select all .hero-text elements and add event listeners for mouseover and mouseout
-  document.querySelectorAll(".main-header-text").forEach((div) => {
-    div.addEventListener("mouseover", (e) => {
-      cursorBorder.style.backgroundColor = "#2fc0cc";
-      cursorBorder.style.setProperty("--size", "60px");
-      cursorBorder.textContent = "Click to start";
-      cursorBorder.style.display = "flex";
-      cursorBorder.style.alignItems = "center";
-      cursorBorder.style.justifyContent = "center";
-      cursorBorder.style.color = "#fff";
-      cursorBorder.style.fontSize = "12px";
-      cursorBorder.style.textAlign = "center";
-      cursorBorder.style.fontWeight = "bold";
+      div.addEventListener("mouseout", (e) => {
+        cursorBorder.style.backgroundColor = "unset";
+        cursorBorder.style.setProperty("--size", "20px");
+        cursorBorder.textContent = "";
+        cursorBorder.style.display = "block";
+        cursorBorder.style.color = "unset";
+      });
     });
 
-    div.addEventListener("mouseout", (e) => {
-      cursorBorder.style.backgroundColor = "unset";
-      cursorBorder.style.setProperty("--size", "20px");
-      cursorBorder.textContent = "";
-      cursorBorder.style.display = "block";
-      cursorBorder.style.color = "unset";
+    document.querySelectorAll(".service-section-more a").forEach((div) => {
+      div.addEventListener("mouseover", (e) => {
+        cursorBorder.style.backgroundColor = "#e31b6deb";
+        cursorBorder.style.borderColor = "#e31b6deb";
+        cursorBorder.style.setProperty("--size", "60px");
+        cursorBorder.textContent = "Expend";
+        cursorBorder.style.display = "flex";
+        cursorBorder.style.alignItems = "center";
+        cursorBorder.style.justifyContent = "center";
+        cursorBorder.style.color = "#fff";
+        cursorBorder.style.fontSize = "12px";
+        cursorBorder.style.textAlign = "center";
+        cursorBorder.style.fontWeight = "bold";
+      });
+
+      div.addEventListener("mouseout", (e) => {
+        cursorBorder.style.backgroundColor = "unset";
+        cursorBorder.style.borderColor = "#2fc0cc";
+        cursorBorder.style.setProperty("--size", "20px");
+        cursorBorder.textContent = "";
+        cursorBorder.style.display = "block";
+        cursorBorder.style.color = "unset";
+      });
     });
-  });
+
+    document.querySelectorAll(".project-section-item-text button.read-more").forEach((div) => {
+      div.addEventListener("mouseover", (e) => {
+        cursorBorder.style.backgroundColor = "#2fc0ccde";
+        cursorBorder.style.borderColor = "#2fc0ccde";
+        cursorBorder.style.setProperty("--size", "60px");
+        cursorBorder.textContent = "Open up";
+        cursorBorder.style.display = "flex";
+        cursorBorder.style.alignItems = "center";
+        cursorBorder.style.justifyContent = "center";
+        cursorBorder.style.color = "#fff";
+        cursorBorder.style.fontSize = "12px";
+        cursorBorder.style.textAlign = "center";
+        cursorBorder.style.fontWeight = "bold";
+      });
+
+      div.addEventListener("mouseout", (e) => {
+        cursorBorder.style.backgroundColor = "unset";
+        cursorBorder.style.setProperty("--size", "20px");
+        cursorBorder.textContent = "";
+        cursorBorder.style.display = "block";
+        cursorBorder.style.color = "unset";
+      });
+    });
+  }
+
+  // Initially apply hover effects to all existing elements
+  applyHoverEffects();
+
+  // Return the applyHoverEffects function so it can be reused
+  return applyHoverEffects;
 }
 
 
@@ -644,19 +795,17 @@ $(document).ready(function() {
   });
 });*/
 
-$(document).ready(function() {
-  function blockScroll(event) {
-      let scrollTop = $(window).scrollTop();
+function overlayMobile() {
+  jQuery('.project-section-item-overlay').on('click', function() {
+    const $this = jQuery(this);
+    const $next = $this.next();
 
-      // Disable scroll when at the very top of the page
-      if (scrollTop === 0) {
-          event.preventDefault(); // Prevent default scroll behavior
-      } else {
-          // Remove the event listener once the user scrolls down
-          window.removeEventListener('wheel', blockScroll, { passive: false });
-      }
-  }
+    // reset others
+    jQuery('.project-section-item-overlay').not($this).removeClass('active');
+    jQuery('.project-section-item-text').not($next).css('opacity', 0);
 
-  window.addEventListener('wheel', blockScroll, { passive: false }); // Set passive to false to allow preventDefault
-});
-
+    // active on click
+    $this.addClass('active');
+    $this.next().css('opacity', 1);
+  });
+}

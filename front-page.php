@@ -63,22 +63,18 @@ get_header();
 				</div>
 				<div class="main-header-text">
 					<a href="#intro" id="link1">
-						<h1><?php //the_field('page_title'); ?><span>WEB</span><span>Plus</span></h1>
+						<h1><?php the_field('page_title'); ?><!--<span>WEB</span><span>Plus</span>--></h1>
 					</a>
 					<a href="#intro" id="link2">
 						<div class="main-header-text-wrapper">
 							<p class="first-text"><span>Find</span> <span>the</span> <span>Best</span> <span>solution</span> <span>for</span> <span>your</span> <span>Website!</span></p>
-							<p class="second-text"><span>Click</span> <span>here</span> <span>to</span> <span>start</span></p>
+							<p class="second-text"><span>Click</span> <span>here</span> <span>to</span> <span>start</span> <span>exploring</span></p>
 						</div>
 					</a>
 				</div>
 
-				<!--
-				<a href="#service" class="hero-arrow">
-                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                        <path d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"></path>
-                    </svg>
-                </a>-->
+				
+				
 			</div>
 
 			<ul class="social social-header">
@@ -129,18 +125,25 @@ get_header();
 					
 	</section>
 
-	<section class="section intro-section section-active desktop-only" id="intro">
+	<section class="section intro-section section-active" id="intro">
 		<div class="container">
-			<h2><span>Hello!</span> <span>My</span> <span>name</span> <span>is</span> <span>Aljoša,</span> <span>and</span> <span>I</span> <span>can</span> <span>turn</span> <span>your</span> <span>ideas</span> <span>into</span> <span>an</span> <span>awesome</span> <span>website.</span> <span>Scroll</span> <span>down</span> <span>and</span> <span>we</span> <span>can</span> <span>bring</span> <span>your</span> <span>vision</span> <span>to</span> <span>life!</span> <span><!--<a href="#service" style="text-decoration: underline;">Click if you are ready!</a></span>-->
-			</h2>
+			<h2 class="section-title"><?php the_field('intro_title'); ?></h2>
 		</div>
 	</section>
+
+	<div class="hero-arrow-wrapper">
+		<a href="#service" class="hero-arrow">
+			<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+				<path d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"></path>
+			</svg>
+		</a>
+	</div>
 
 	<!--section 2-->
 	<section id="service" class="section service-section section-active">
 
 		<div class="container">
-		<h2 class="section-title"><?php //the_field('service_title'); ?>As a Web Developer, I Offer a Variety of Services to Realize Your Ideas</h2>
+		<h2 class="section-title"><?php the_field('service_title'); ?></h2>
 			<div class="service-section-items-wrapper">
 				<ul class="service-section-items">
 					<?php
@@ -185,7 +188,7 @@ get_header();
 	<!--section 3-->
 	<section id="projects" class="section project-section section-active">
 		<div class="container">
-		  <h2 class="section-title"><?php //the_field('projects_title'); ?>Explore My Portfolio: Diverse Web Projects and Custom Solutions</h2>
+		  <h2 class="section-title"><?php the_field('projects_title'); ?></h2>
 
 			<ul id="category-filter" class="category-filter">
 				<li data-cat-id="" class="active">All</li>
@@ -213,7 +216,7 @@ get_header();
 						endwhile;
 						wp_reset_postdata();
 					else :
-						echo '<p>No posts found.</p>';
+						echo '';
 					endif;
 
 					?>
@@ -262,27 +265,11 @@ get_header();
 			
 	</section>
 	
-	<!--
-
-	<section id="references" class="section references-section section-active">
-		<div class="container">
-			<h3 class="section-subtitle">Over the years, I have collaborated with many companies. Some that I had the pleasure of working with include: </h3>
-			<ul class="references-section-list">
-				<li><a href="#"><img src="<?php echo get_theme_file_uri();?>/img/references/studio_moderna_logo.png" alt="Webplus Aljosa Bold"></a></li>
-				<li><a href="#"><img src="<?php echo get_theme_file_uri();?>/img/references/bold-logo.svg" alt="Webplus Aljosa Bold"></a></li>
-				<li><a href="#"><img src="<?php echo get_theme_file_uri();?>/img/references/zvezdaaaa.png" alt="Webplus Aljosa Bold"></a></li>
-				<li><a href="#"><img src="<?php echo get_theme_file_uri();?>/img/references/mv-agency.png" alt="Webplus Aljosa Bold"></a></li>
-
-			</ul>
-		</div>
-	</section>
-
-				-->
 
 	<section id="contact" class="section contact-section section-active">
 		<div class="container">
-			<h2 class="section-title"><?php //the_field('contact_title'); ?>I’m excited to hear from you and discuss how we can create something amazing together!</h2>
-		     <h2 class="section-title"><?php //the_field('contact_title'); ?><strong> Fill out the form to get in touch.</strong> </h2>
+			<h2 class="section-title"><?php the_field('contact_title'); ?></h2>
+		     <h2 class="section-title"><strong><?php the_field('form_title'); ?> </strong> </h2>
 			<div class="contact-section-form">
 				<?php echo do_shortcode('[contact-form-7 id="ab80481" title="Contact me"]');?>
 			</div>

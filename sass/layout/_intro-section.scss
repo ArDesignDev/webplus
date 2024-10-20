@@ -5,22 +5,43 @@
     justify-content: center;
 
     @media (max-width: $bp-medium) {
-        padding-bottom: 10rem;
-        padding-top: 8rem;
+        padding-bottom: 4rem;
+        padding-top: 0;
         height: auto;
+        margin-top: -2rem;
     }
 
     h2 {
+        @media (max-width: $bp-medium) {
+            text-align: center !important;
+        }
         span {
             opacity: 0;
             transform: translateY(2rem);
             transition: all .6s;
             display: inline-block;
             
+            @media (max-width: $bp-medium) {
+                transform: translateY(1rem);
+
+            }
+            
             &.scrolled {
                 opacity: 1;
                 transform: translateY(0);
             }
+
+            @media (max-width: $bp-medium) {
+                &:nth-last-child(-n+10) {
+                    display: none !important;
+                }
+            }
+
+       
+        }
+
+        @media (max-width: $bp-medium) {
+            font-size: 2.4rem;
         }
     }
 }
