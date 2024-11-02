@@ -679,8 +679,8 @@ function courserEffect() {
 
     document.querySelectorAll(".main-header-text").forEach((div) => {
       div.addEventListener("mouseover", (e) => {
-        cursorBorder.style.backgroundColor = "#2fc0ccde";
-        cursorBorder.style.borderColor = "#2fc0ccde";
+        cursorBorder.style.backgroundColor = "#e31b6deb";
+        cursorBorder.style.borderColor = "#e31b6deb";
         cursorBorder.style.setProperty("--size", "60px");
         cursorBorder.textContent = "Click to start";
         cursorBorder.style.display = "flex";
@@ -728,8 +728,8 @@ function courserEffect() {
 
     document.querySelectorAll(".project-section-item-text button.read-more").forEach((div) => {
       div.addEventListener("mouseover", (e) => {
-        cursorBorder.style.backgroundColor = "#2fc0ccde";
-        cursorBorder.style.borderColor = "#2fc0ccde";
+        cursorBorder.style.backgroundColor = "#e31b6deb";
+        cursorBorder.style.borderColor = "#e31b6deb";
         cursorBorder.style.setProperty("--size", "60px");
         cursorBorder.textContent = "Open up";
         cursorBorder.style.display = "flex";

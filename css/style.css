@@ -312,8 +312,8 @@ h6 {
   }
 }
 .btn .read-more:hover {
-  border: 1px solid #E31B6D;
-  background-color: #E31B6D;
+  border: 1px solid #fff;
+  background-color: transparent;
 }
 
 .link a {
