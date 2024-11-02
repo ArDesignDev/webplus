@@ -16,7 +16,7 @@ function unija_script_enqueue() {
 
     wp_enqueue_style('Ralaway', 'https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap'); // Font Family
     //wp_enqueue_style('Slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css', array(), '1.0.0.', 'all');
-    wp_enqueue_style('customstyle', get_template_directory_uri() . '/css/style.css', array(), '1.8.0.', 'all');
+    wp_enqueue_style('customstyle', get_template_directory_uri() . '/css/style.css', array(), '1.8.1.', 'all');
 
     // script
     wp_deregister_script('jquery');
@@ -30,7 +30,7 @@ function unija_script_enqueue() {
     wp_enqueue_script('particles', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js', array(), '1.0.0', true);
 
 
-	wp_enqueue_script('customjs', get_template_directory_uri() . '/js/script.js', array(), '1.2.6', true);
+	wp_enqueue_script('customjs', get_template_directory_uri() . '/js/script.js', array(), '1.2.7', true);
 
 }
 

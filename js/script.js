@@ -694,6 +694,7 @@ function courserEffect() {
 
       div.addEventListener("mouseout", (e) => {
         cursorBorder.style.backgroundColor = "unset";
+        cursorBorder.style.borderColor = "#2fc0cc";
         cursorBorder.style.setProperty("--size", "20px");
         cursorBorder.textContent = "";
         cursorBorder.style.display = "block";
@@ -731,7 +732,7 @@ function courserEffect() {
         cursorBorder.style.backgroundColor = "#e31b6deb";
         cursorBorder.style.borderColor = "#e31b6deb";
         cursorBorder.style.setProperty("--size", "60px");
-        cursorBorder.textContent = "Open up";
+        cursorBorder.textContent = "Pop up";
         cursorBorder.style.display = "flex";
         cursorBorder.style.alignItems = "center";
         cursorBorder.style.justifyContent = "center";
@@ -743,6 +744,7 @@ function courserEffect() {
 
       div.addEventListener("mouseout", (e) => {
         cursorBorder.style.backgroundColor = "unset";
+        cursorBorder.style.borderColor = "#2fc0cc";
         cursorBorder.style.setProperty("--size", "20px");
         cursorBorder.textContent = "";
         cursorBorder.style.display = "block";
